@@ -1,0 +1,20 @@
+pipelines:
+  python-ops:
+    group: platform
+    label_template: "${git[:8]}"
+    materials:
+      git:
+        git: "git@git.ai-traders.com:platform/python-ops.git"
+        branch: master
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            build:
+              elastic_profile_id: w.c1.m1024.e5
+              tasks:
+               - exec:
+                  command: /bin/bash
+                  arguments:
+                    - -c
+                    - "echo \"pipeline not created yet\" && exit 1"
