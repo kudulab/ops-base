@@ -17,4 +17,4 @@ pipelines:
                   command: /bin/bash
                   arguments:
                     - -c
-                    - "echo \"pipeline not created yet\" && exit 1"
+                    - "docker build ."
