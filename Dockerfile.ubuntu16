@@ -1,0 +1,8 @@
+FROM ubuntu:16.04
+
+COPY setup /setup
+
+ARG INSTALL_DOCKER
+RUN INSTALL_DOCKER=${INSTALL_DOCKER} cd /setup && ./install.sh
+RUN rm -rf /var/lib/docker
+VOLUME /var/lib/docker

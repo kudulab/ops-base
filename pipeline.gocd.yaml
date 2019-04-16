@@ -1,5 +1,5 @@
 pipelines:
-  python-ops:
+  ops-base:
     group: platform
     label_template: "${git[:8]}"
     materials:
@@ -10,11 +10,16 @@ pipelines:
       - build:
           clean_workspace: true
           jobs:
-            build:
+            ubuntu16:
               elastic_profile_id: w.c1.m1024.e5
               tasks:
                - exec:
                   command: /bin/bash
                   arguments:
                     - -c
-                    - "docker build ."
+                    - "./tasks.sh build ubuntu16"
+               - exec:
+                  command: /bin/bash
+                  arguments:
+                    - -c
+                    - "./tasks.sh test ubuntu16"
