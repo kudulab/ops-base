@@ -14,7 +14,15 @@ case "${command}" in
       echo "must specify distribution to build"
       exit 1
     fi
-    docker build -t ops-base:$distribution-$version --build-arg INSTALL_DOCKER=true . -f Dockerfile.$distribution
+    docker build -t ops-base:$distribution --build-arg INSTALL_DOCKER=true . -f Dockerfile.$distribution
+      ;;
+  build_gui)
+    distribution=$2
+    if [ -z "$distribution" ]; then
+      echo "must specify distribution to build"
+      exit 1
+    fi
+    docker build -t ops-base:$distribution-gui . -f Dockerfile.$distribution-gui
       ;;
   test)
     distribution=$2
@@ -22,7 +30,7 @@ case "${command}" in
       echo "must specify distribution to build"
       exit 1
     fi
-    docker run --privileged --rm --volume $PROJECT_DIR/test:/test ops-base:$distribution-$version './test/test.sh'
+    docker run --privileged --rm --volume $PROJECT_DIR/test:/test ops-base:$distribution './test/test.sh'
     ;;
   *)
       echo "Invalid command: '${command}'"

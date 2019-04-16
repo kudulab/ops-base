@@ -42,7 +42,6 @@ git clone http://git.ai-traders.com/platform/python-ops.git /tmp/ops-base &&\
 ```
 
 The `setup/install.sh` is intended to be run on both workstation and CI agent images.
-`install_pycharm.sh` should be executed only in workstation image.
 
 Options:
  * `SKIP_VAULT` - for those that don't use hashicorp vault
@@ -50,3 +49,9 @@ Options:
  * `SKIP_PYTHON_TOOLS` - will not install tools from `setup/requirements.txt`
 
 By default docker is not installed, because docker configuration is platform specific. To install it quickly set `INSTALL_DOCKER`.
+
+### GUI setup
+
+`setup-gui/install.sh` should be executed only in workstation image or on the physical host.
+
+It is an opinionated set of GUI tools. Most importantly including pycharm to work on the python scripts.

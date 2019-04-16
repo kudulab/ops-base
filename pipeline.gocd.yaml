@@ -7,7 +7,7 @@ pipelines:
         git: "git@git.ai-traders.com:platform/python-ops.git"
         branch: master
     stages:
-      - build:
+      - test:
           clean_workspace: true
           jobs:
             ubuntu16:
@@ -23,3 +23,8 @@ pipelines:
                   arguments:
                     - -c
                     - "./tasks.sh test ubuntu16"
+               - exec:
+                  command: /bin/bash
+                  arguments:
+                    - -c
+                    - "./tasks.sh build_gui ubuntu16"
