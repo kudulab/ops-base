@@ -6,6 +6,10 @@ pipelines:
       git:
         git: "git@git.ai-traders.com:platform/python-ops.git"
         branch: master
+        destination: ops-base
+      releaser:
+        git: git@github.com:kudulab/releaser.git
+        destination: releaser
     stages:
       - test:
           clean_workspace: true
@@ -14,17 +18,27 @@ pipelines:
               elastic_profile_id: w.c1.m1024.e5
               tasks:
                - exec:
+                  working_directory: ops-base
                   command: /bin/bash
                   arguments:
                     - -c
                     - "./tasks.sh build ubuntu16"
                - exec:
+                  working_directory: ops-base
                   command: /bin/bash
                   arguments:
                     - -c
                     - "./tasks.sh test ubuntu16"
                - exec:
+                  working_directory: ops-base
+                  command: /bin/bash
+                  arguments:
+                    - -c
+                    - "./tasks.sh itest ubuntu16 releaser"
+               - exec:
+                  working_directory: ops-base
                   command: /bin/bash
                   arguments:
                     - -c
                     - "./tasks.sh build_gui ubuntu16"
+#TODO: itest with every supported version of releaser, docker-ops, secret-ops

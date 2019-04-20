@@ -6,3 +6,7 @@ ARG INSTALL_DOCKER
 RUN INSTALL_DOCKER=${INSTALL_DOCKER} cd /setup && ./install.sh
 RUN rm -rf /var/lib/docker
 VOLUME /var/lib/docker
+
+# Minimal setup for releaser tests
+RUN git config --global user.email "you@example.com" &&\
+  git config --global user.name "Your Name"
