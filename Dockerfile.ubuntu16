@@ -7,6 +7,16 @@ RUN INSTALL_DOCKER=${INSTALL_DOCKER} cd /setup && ./install.sh
 RUN rm -rf /var/lib/docker
 VOLUME /var/lib/docker
 
+# Add tester user and group
+RUN groupadd --gid 1000 tester &&\
+  useradd --home-dir /home/tester --uid 1000 --gid 1000 --shell /bin/bash tester &&\
+  usermod -a -G tester tester &&\
+  usermod -a -G docker tester &&\
+  mkdir -p /home/tester &&\
+  chown tester:tester /home/tester
+
+USER tester
+
 # Minimal setup for releaser tests
 RUN git config --global user.email "you@example.com" &&\
   git config --global user.name "Your Name"
