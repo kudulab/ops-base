@@ -10,6 +10,9 @@ pipelines:
       releaser:
         git: git@github.com:kudulab/releaser.git
         destination: releaser
+      docker_ops:
+        git: git@github.com:kudulab/docker-ops.git
+        destination: docker-ops
     stages:
       - test:
           clean_workspace: true
@@ -35,6 +38,12 @@ pipelines:
                   arguments:
                     - -c
                     - "./tasks.sh itest ubuntu16 releaser"
+               - exec:
+                  working_directory: ops-base
+                  command: /bin/bash
+                  arguments:
+                    - -c
+                    - "./tasks.sh itest ubuntu16 docker-ops"
                - exec:
                   working_directory: ops-base
                   command: /bin/bash
