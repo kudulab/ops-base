@@ -1,3 +1,4 @@
+format_version: 3
 pipelines:
   ops-base:
     group: platform
@@ -13,8 +14,13 @@ pipelines:
       docker_ops:
         git: git@github.com:kudulab/docker-ops.git
         destination: docker-ops
+      secret_ops:
+        git: git@github.com:kudulab/secret-ops.git
+        destination: secret-ops
     stages:
       - test:
+          secure_variables:
+            VAULT_TOKEN: "AES:oOwz3k6PGINAZgeaiiefRQ==:+bwdc6MmkYRjyrlIBdN67OhnkmKsc3ac1UQIgAqORAK1IeV4o3vev8fdoPXcr/07"
           clean_workspace: true
           jobs:
             ubuntu16:
@@ -44,6 +50,12 @@ pipelines:
                   arguments:
                     - -c
                     - "./tasks.sh itest ubuntu16 docker-ops"
+               - exec:
+                  working_directory: ops-base
+                  command: /bin/bash
+                  arguments:
+                    - -c
+                    - "./tasks.sh itest ubuntu16 secret-ops"
                - exec:
                   working_directory: ops-base
                   command: /bin/bash
