@@ -13,7 +13,8 @@ RUN groupadd --gid 1000 tester &&\
   usermod -a -G tester tester &&\
   usermod -a -G docker tester &&\
   mkdir -p /home/tester &&\
-  chown tester:tester /home/tester
+  chown tester:tester /home/tester &&\
+  echo 'tester ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 USER tester
 
