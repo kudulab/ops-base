@@ -8,16 +8,16 @@ RUN INSTALL_DOCKER=${INSTALL_DOCKER} INSTALL_AIT_CA=${INSTALL_AIT_CA} cd /setup 
 RUN rm -rf /var/lib/docker
 VOLUME /var/lib/docker
 
-# Add tester user and group
-RUN groupadd --gid 1000 tester &&\
-  useradd --home-dir /home/tester --uid 1000 --gid 1000 --shell /bin/bash tester &&\
-  usermod -a -G tester tester &&\
-  usermod -a -G docker tester &&\
-  mkdir -p /home/tester &&\
-  chown tester:tester /home/tester &&\
-  echo 'tester ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+# Add go user and group to execute tests
+RUN groupadd --gid 1000 go &&\
+  useradd --home-dir /home/go --uid 1000 --gid 1000 --shell /bin/bash go &&\
+  usermod -a -G go go &&\
+  usermod -a -G docker go &&\
+  mkdir -p /home/go &&\
+  chown go:go /home/go &&\
+  echo 'go ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
-USER tester
+USER go
 
 # Minimal setup for releaser tests
 RUN git config --global user.email "you@example.com" &&\
