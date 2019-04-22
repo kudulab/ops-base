@@ -2,4 +2,4 @@ FROM ops-base:ubuntu16
 
 COPY setup-gui /setup
 
-RUN cd /setup && ./install.sh
+RUN cd /setup && sudo ./install.sh
