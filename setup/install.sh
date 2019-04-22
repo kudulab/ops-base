@@ -63,6 +63,11 @@ git clone --depth 1 https://github.com/sstephenson/bats.git /opt/bats &&\
   git clone --depth 1 https://github.com/ztombol/bats-assert.git /opt/bats-assert &&\
   /opt/bats/install.sh /usr/local
 
+if [ -n ${INSTALL_AIT_CA} ]; then
+  cp $SETUP_DIR/ait.crt /usr/local/share/ca-certificates/ait.crt
+  update-ca-certificates
+fi
+
 if [ -n ${INSTALL_DOCKER} ]; then
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   add-apt-repository \

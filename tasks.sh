@@ -22,7 +22,7 @@ case "${command}" in
       echo "must specify distribution to build"
       exit 1
     fi
-    docker build -t ops-base:$distribution --build-arg INSTALL_DOCKER=true . -f Dockerfile.$distribution
+    docker build -t ops-base:$distribution --build-arg INSTALL_DOCKER=true --build-arg INSTALL_AIT_CA=true . -f Dockerfile.$distribution
       ;;
   build_gui)
     distribution=$2

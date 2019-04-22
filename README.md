@@ -47,6 +47,7 @@ Options:
  * `SKIP_VAULT` - for those that don't use hashicorp vault
  * `SKIP_PYTHON_BASE` - will not try to install python with apt-get or alike
  * `SKIP_PYTHON_TOOLS` - will not install tools from `setup/requirements.txt`
+ * `INSTALL_AIT_CA` - installs AIT root CA, this is only needed to use some of our services. By default not installed.
 
 By default docker is not installed, because docker configuration is platform specific. To install it quickly set `INSTALL_DOCKER`.
 
