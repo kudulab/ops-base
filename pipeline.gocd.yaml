@@ -5,7 +5,7 @@ pipelines:
     label_template: "${git[:8]}"
     materials:
       git:
-        git: "git@git.ai-traders.com:platform/python-ops.git"
+        git: "git@github.com:kudulab/ops-base.git"
         branch: master
         destination: ops-base
       releaser:
@@ -62,4 +62,15 @@ pipelines:
                   arguments:
                     - -c
                     - "./tasks.sh build_gui ubuntu16"
-#TODO: itest with every supported version of releaser, docker-ops, secret-ops
+      - release:
+          clean_workspace: true
+          jobs:
+            code:
+              elastic_profile_id: w.c1.m1024.e5
+              tasks:
+               - exec:
+                  working_directory: ops-base
+                  command: /bin/bash
+                  arguments:
+                    - -c
+                    - "./tasks.sh release"
