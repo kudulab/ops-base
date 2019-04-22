@@ -53,7 +53,7 @@ case "${command}" in
     fi
     component_dir="$(readlink -f $PROJECT_DIR/../$component)"
     echo "Testing with $component at $component_dir"
-    docker run --privileged --rm --volume $component_dir:/test ops-base:$distribution bash -c 'cd ./test/ && ./tasks test'
+    docker run --privileged -t --rm --volume $component_dir:/test ops-base:$distribution bash -c 'sudo service docker start && cd ./test/ && ./tasks test'
     ;;
   generate_vault_token)
     vault_token=$(vault token create -ttl=48h -policy=gocd -field token -metadata gocd_renew=true)
