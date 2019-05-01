@@ -1,3 +1,8 @@
+### 0.2.1 (2019-May-01)
+ * added license
+ * new vault token
+ * fix empty line in the install.sh
+
 ### 0.2.0 (2019-Apr-22)
 
  * Making new specs \#17556

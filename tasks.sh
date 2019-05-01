@@ -24,6 +24,9 @@ source $RELEASER_FILE
 
 command="$1"
 case "${command}" in
+  set_version)
+      releaser::bump_changelog_version "$2" "$3"
+      ;;
   build)
     distribution=$2
     if [ -z "$distribution" ]; then
@@ -71,12 +74,12 @@ case "${command}" in
       releaser::log_info "Current commit is already tagged, skipping code release"
     else
       releaser::log_info "Current commit has no tags, starting code release..."
-      releaser::verify_version_for_release
+      releaser::verify_release_ready
       releaser::git_tag_from_changelog
     fi
     ;;
   generate_vault_token)
-    vault_token=$(vault token create -ttl=48h -policy=gocd -field token -metadata gocd_renew=true)
+    vault_token=$(vault token create -orphan -ttl=48h -policy=gocd -field token -metadata gocd_renew=true)
     secured_token_gocd=$(secret_ops::encrypt_with_gocd_top "${vault_token}")
     echo "Generated token: ${vault_token} and encrypted by GoCD server"
     secret_ops::insert_vault_token_gocd_yaml "${secured_token_gocd}"

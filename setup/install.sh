@@ -54,7 +54,7 @@ chmod +x ./jq-linux64
 mv -f ./jq-linux64 /usr/bin/jq
 
 # Install Dojo
-wget -O /usr/bin/dojo https://github.com/ai-traders/dojo/releases/download/${DOJO_VERSION}/dojo &&\
+wget -O /usr/bin/dojo https://github.com/ai-traders/dojo/releases/download/${DOJO_VERSION}/dojo
 chmod +x /usr/bin/dojo
 
 # Install bats

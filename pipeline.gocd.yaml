@@ -20,7 +20,7 @@ pipelines:
     stages:
       - test:
           secure_variables:
-            VAULT_TOKEN: "AES:oOwz3k6PGINAZgeaiiefRQ==:+bwdc6MmkYRjyrlIBdN67OhnkmKsc3ac1UQIgAqORAK1IeV4o3vev8fdoPXcr/07"
+            VAULT_TOKEN: "AES:bs4Vfbe0WOAAqg/pzJvoBA==:GQonya3KXh5Krbq8gr6XE6mY2TtwXq5q6nOZNPcd9Bi5DFL71bhaz6ppjhWgA0i5"
           clean_workspace: true
           jobs:
             ubuntu16:
