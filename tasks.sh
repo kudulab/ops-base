@@ -4,7 +4,7 @@ set -e
 PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 SECRET_OPS_VERSION="0.6.2"
-RELEASER_VERSION="2.0.0"
+RELEASER_VERSION="2.1.0"
 
 RELEASER_FILE="ops/releaser-${RELEASER_VERSION}"
 SECRET_OPS_FILE="ops/secret-ops"
