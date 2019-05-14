@@ -1,3 +1,8 @@
+### 0.3.0 (2019-May-14)
+ * added pytest
+ * upgraded vault to 1.1.1
+ * upgraded dojo to 0.5.0
+
 ### 0.2.1 (2019-May-01)
  * added license
  * new vault token

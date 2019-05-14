@@ -2,9 +2,9 @@
 
 set -e
 
-VAULT_VERSION="0.10.1"
+VAULT_VERSION="1.1.1"
 DOCKER_COMPOSE_VERSION="1.23.2"
-DOJO_VERSION="0.2.1"
+DOJO_VERSION="0.5.0"
 
 SETUP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $SETUP_DIR
@@ -54,7 +54,7 @@ chmod +x ./jq-linux64
 mv -f ./jq-linux64 /usr/bin/jq
 
 # Install Dojo
-wget -O /usr/bin/dojo https://github.com/ai-traders/dojo/releases/download/${DOJO_VERSION}/dojo
+wget -O /usr/bin/dojo https://github.com/ai-traders/dojo/releases/download/${DOJO_VERSION}/dojo_linux_amd64
 chmod +x /usr/bin/dojo
 
 # Install bats
