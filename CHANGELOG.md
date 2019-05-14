@@ -1,3 +1,6 @@
+### 0.3.1 (2019-May-14)
+ * fix SKIP variables
+
 ### 0.3.0 (2019-May-14)
  * added pytest
  * upgraded vault to 1.1.1
