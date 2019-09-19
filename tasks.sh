@@ -3,7 +3,7 @@ set -e
 
 PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-SECRET_OPS_VERSION="0.6.2"
+SECRET_OPS_VERSION="0.8.0"
 RELEASER_VERSION="2.1.0"
 
 RELEASER_FILE="ops/releaser-${RELEASER_VERSION}"
