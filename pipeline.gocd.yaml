@@ -24,7 +24,8 @@ pipelines:
           clean_workspace: true
           jobs:
             ubuntu16:
-              elastic_profile_id: w.c1.m1024.e5
+              resources:
+                - docker
               tasks:
                - exec:
                   working_directory: ops-base
@@ -66,7 +67,8 @@ pipelines:
           clean_workspace: true
           jobs:
             code:
-              elastic_profile_id: w.c1.m1024.e5
+              resources:
+                - docker
               tasks:
                - exec:
                   working_directory: ops-base
