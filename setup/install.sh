@@ -87,8 +87,8 @@ fi
 
 # Install
 git clone --depth 1 https://github.com/sstephenson/bats.git /tmp/bats &&\
-  git clone --depth 1 https://github.com/ztombol/bats-support.git /tmp/bats-support &&\
-  git clone --depth 1 https://github.com/ztombol/bats-assert.git /tmp/bats-assert &&\
+  git clone --depth 1 https://github.com/ztombol/bats-support.git /opt/bats-support &&\
+  git clone --depth 1 https://github.com/ztombol/bats-assert.git /opt/bats-assert &&\
   /tmp/bats/install.sh /usr/local
 
 if [[ "$OSTYPE" != "darwin"* ]]; then
