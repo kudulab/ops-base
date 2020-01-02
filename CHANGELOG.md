@@ -1,3 +1,7 @@
+### 0.4.0 (2020-Jan-02)
+
+ * updated Dojo to 0.7.0 to support new print logs feature
+
 ### 0.3.2 (2019-Sep-19)
  * updates to support OSX
 
