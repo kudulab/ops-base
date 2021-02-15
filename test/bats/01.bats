@@ -60,6 +60,6 @@ load '/opt/bats-assert/load.bash'
 @test "python pytest CLI is installed" {
   run /bin/bash -c "pytest --version"
   echo "output: ${output}"
-  assert_output --partial "4.4.1"
+  assert_output --partial "6.2.2"
   assert_equal "$status" 0
 }

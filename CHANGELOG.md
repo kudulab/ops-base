@@ -1,6 +1,6 @@
 ### 0.5.0 (2021-Feb-15)
  * updated Dojo to 0.10.13
- 
+ * updated pytest to 6.2.2
 ### 0.4.0 (2020-Jan-02)
 
  * updated Dojo to 0.7.0 to support new print logs feature
