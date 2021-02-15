@@ -1,5 +1,5 @@
 pyyaml==3.13
-jinja2==2.10
+jinja2==2.10.1
 yasha==4.3
 requests==2.20.1
 hvac[parser]==0.7.0
