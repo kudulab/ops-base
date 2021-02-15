@@ -4,7 +4,7 @@ set -e
 
 VAULT_VERSION="1.1.1"
 DOCKER_COMPOSE_VERSION="1.23.2"
-DOJO_VERSION="0.7.0"
+DOJO_VERSION="0.10.3"
 
 SETUP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $SETUP_DIR
